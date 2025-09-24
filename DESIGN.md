@@ -68,9 +68,6 @@ above.
     if (now <= minDate) {
       minDate = now
 
-      const existsDetailsA = refs.find((element) => element.id_a == event.id_a)
-      const existsDetailsB = refs.find((element) => element.id_b == event.id_b)
-
       if (now == minDate) {
         minDateName = coll.compare(existsDetailsA?.name, minDateName) < 0 ? existsDetailsA.name : minDateName
         minDateName = coll.compare(existsDetailsB?.name, minDateName) < 0 ? existsDetailsB.name : minDateName
@@ -88,9 +85,6 @@ all else is virtually idential.
     if (event.value <= minValue) {
       minValue = event.value
 
-      const existsDetailsA = refs.find((element) => element.id_a == event.id_a)
-      const existsDetailsB = refs.find((element) => element.id_b == event.id_b)
-
       if (event.value == minValue) {
         minValueName = coll.compare(existsDetailsA?.name, minValueName) < 0 ? existsDetailsA.name : minValueName
         minValueName = coll.compare(existsDetailsB?.name, minValueName) < 0 ? existsDetailsB.name : minValueName
@@ -105,9 +99,6 @@ Finally we filter out for high values and push their names into `high_value_name
 ```javascript
     // tally high-value names
     if (event.value > 25) {
-      const existsDetailsA = refs.find((element) => element.id_a == event.id_a)
-      const existsDetailsB = refs.find((element) => element.id_b == event.id_b)
-
       existsDetailsA && obj['task2']['high_value_names'].push(existsDetailsA.name)
       existsDetailsB && obj['task2']['high_value_names'].push(existsDetailsB.name)
     }

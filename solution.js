@@ -36,13 +36,13 @@ function solution() {
       obj['task1'][key][event.color] += 1
     }
 
+    const existsDetailsA = refs.find((element) => element.id_a == event.id_a)
+    const existsDetailsB = refs.find((element) => element.id_b == event.id_b)
+
     // seek out global min date name
     const now = dateTimeObject.getTime()
     if (now <= minDate) {
       minDate = now
-
-      const existsDetailsA = refs.find((element) => element.id_a == event.id_a)
-      const existsDetailsB = refs.find((element) => element.id_b == event.id_b)
 
       if (now == minDate) {
         minDateName = coll.compare(existsDetailsA?.name, minDateName) < 0 ? existsDetailsA.name : minDateName
@@ -57,9 +57,6 @@ function solution() {
     if (event.value <= minValue) {
       minValue = event.value
 
-      const existsDetailsA = refs.find((element) => element.id_a == event.id_a)
-      const existsDetailsB = refs.find((element) => element.id_b == event.id_b)
-
       if (event.value == minValue) {
         minValueName = coll.compare(existsDetailsA?.name, minValueName) < 0 ? existsDetailsA.name : minValueName
         minValueName = coll.compare(existsDetailsB?.name, minValueName) < 0 ? existsDetailsB.name : minValueName
@@ -71,9 +68,6 @@ function solution() {
 
     // tally high-value names
     if (event.value > 25) {
-      const existsDetailsA = refs.find((element) => element.id_a == event.id_a)
-      const existsDetailsB = refs.find((element) => element.id_b == event.id_b)
-
       existsDetailsA && obj['task2']['high_value_names'].push(existsDetailsA.name)
       existsDetailsB && obj['task2']['high_value_names'].push(existsDetailsB.name)
     }
