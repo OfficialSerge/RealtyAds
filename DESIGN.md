@@ -119,3 +119,6 @@ It was somewhat helpful but I did the majority of this without it, although I wa
 ...\
 *I ask because I'm looking to break ties between similar strings, for example "cat" and "car", by sorting them alphabetically. I also need a proper starting value for the min-string variables so that localeCompare returns true at first.*
 
+### Final Note.
+I personally like to use double ampersands `&&`, null coalescing `??` and ternary operators `_ ? _ : _` when possible to eliminate excessive nested if statements.
+
